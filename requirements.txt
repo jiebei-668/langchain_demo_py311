@@ -1,0 +1,146 @@
+addict==2.4.0
+aiodns @ file:///home/task_176218489379452/conda-bld/aiodns_1762184938769/work
+aiofiles==24.1.0
+aiohappyeyeballs @ file:///croot/aiohappyeyeballs_1755769838153/work
+aiohttp @ file:///home/task_176251933175346/conda-bld/aiohttp_1762519754818/work
+aiosignal @ file:///croot/aiosignal_1755870803324/work
+annotated-doc==0.0.4
+annotated-types @ file:///home/task_176174488330724/conda-bld/annotated-types_1761744897939/work
+anyio @ file:///home/task_175862240045110/conda-bld/anyio_1758622417185/work
+attrs @ file:///home/task_176235654487424/conda-bld/attrs_1762356877102/work
+beautifulsoup4 @ file:///croot/beautifulsoup4-split_1756453090369/work
+brotli==1.2.0
+brotlicffi @ file:///home/task_176174500271162/conda-bld/brotlicffi_1761745022849/work
+certifi @ file:///home/task_175978569463913/conda-bld/certifi_1759786098575/work/certifi
+cffi @ file:///home/task_176183215235376/conda-bld/cffi_1761832773734/work
+charset-normalizer @ file:///home/task_176174480956840/conda-bld/charset-normalizer_1761744822896/work
+click @ file:///croot/click_1754477934456/work
+crefi==2.0.9
+dataclasses-json @ file:///croot/dataclasses-json_1749131708065/work
+distro==1.9.0
+faiss-cpu==1.12.0
+fastapi==0.121.1
+ffmpy==1.0.0
+filelock==3.20.0
+frozenlist @ file:///home/task_176106175958168/conda-bld/frozenlist_1761062013359/work
+fsspec==2025.10.0
+gradio==5.49.1
+gradio_client==1.13.3
+greenlet @ file:///home/task_175740548175962/conda-bld/greenlet_1757405529598/work
+groovy==0.1.2
+h11 @ file:///home/task_176193127070316/conda-bld/h11_1761931282547/work
+hf-xet==1.2.0
+httpcore @ file:///croot/httpcore_1748526048470/work
+httpx @ file:///home/task_176044729235861/conda-bld/httpx_1760447346003/work
+httpx-sse @ file:///croot/httpx-sse_1734627584487/work
+huggingface-hub==0.36.0
+idna @ file:///home/task_176191178300919/conda-bld/idna_1761911982343/work
+interchange==2021.0.4
+Jinja2==3.1.6
+jiter==0.11.1
+joblib==1.5.2
+jsonpatch @ file:///croot/jsonpatch_1714483231291/work
+jsonpointer @ file:///croot/jsonpointer_1753788433671/work
+langchain==1.0.5
+langchain-classic==1.0.0
+langchain-community==0.4.1
+langchain-core==1.0.4
+langchain-openai==1.0.2
+langchain-text-splitters==1.0.0
+langgraph==1.0.2
+langgraph-checkpoint==3.0.1
+langgraph-prebuilt==1.0.2
+langgraph-sdk==0.2.9
+langsmith @ file:///home/task_175948407224783/conda-bld/langsmith_1759484081036/work
+logger==1.4
+markdown-it-py==4.0.0
+MarkupSafe==3.0.3
+marshmallow @ file:///croot/marshmallow_1682620721570/work
+mdurl==0.1.2
+mkl-service==2.5.2
+mkl_fft @ file:///home/task_176159258761192/conda-bld/mkl_fft_1761592901799/work
+mkl_random @ file:///home/task_176159293348456/conda-bld/mkl_random_1761592947335/work
+modelscope==1.31.0
+monotonic==1.6
+mpmath==1.3.0
+multidict @ file:///home/task_176056679629209/conda-bld/multidict_1760566848360/work
+mypy-extensions @ file:///croot/mypy_extensions_1695130926492/work
+networkx==3.5
+numpy @ file:///home/task_176252782621591/conda-bld/numpy_and_numpy_base_1762528499890/work/dist/numpy-2.3.4-cp311-cp311-linux_x86_64.whl#sha256=db07576afc41ffd8e4e72141959de8d6882b518fa8d1875ae9fbd3acac72b086
+nvidia-cublas-cu12==12.8.4.1
+nvidia-cuda-cupti-cu12==12.8.90
+nvidia-cuda-nvrtc-cu12==12.8.93
+nvidia-cuda-runtime-cu12==12.8.90
+nvidia-cudnn-cu12==9.10.2.21
+nvidia-cufft-cu12==11.3.3.83
+nvidia-cufile-cu12==1.13.1.3
+nvidia-curand-cu12==10.3.9.90
+nvidia-cusolver-cu12==11.7.3.90
+nvidia-cusparse-cu12==12.5.8.93
+nvidia-cusparselt-cu12==0.7.1
+nvidia-nccl-cu12==2.27.5
+nvidia-nvjitlink-cu12==12.8.93
+nvidia-nvshmem-cu12==3.3.20
+nvidia-nvtx-cu12==12.8.90
+openai==2.7.1
+orjson==3.11.4
+ormsgpack==1.12.0
+packaging @ file:///home/task_176104885106445/conda-bld/packaging_1761049078006/work
+pandas==2.3.3
+pansi==2024.11.0
+pillow==11.3.0
+propcache @ file:///croot/propcache_1744012718189/work
+py2neo==2021.2.4
+pycares @ file:///croot/pycares_1756217929773/work
+pycparser @ file:///home/task_175749606196006/conda-bld/pycparser_1757496076770/work
+pydantic==2.11.10
+pydantic-settings @ file:///home/task_175878415080499/conda-bld/pydantic-settings_1758784193193/work
+pydantic_core==2.33.2
+pydub==0.25.1
+Pygments==2.19.2
+PySocks @ file:///home/task_176175228059944/conda-bld/pysocks_1761753009523/work
+python-dateutil==2.9.0.post0
+python-dotenv @ file:///croot/python-dotenv_1745610241282/work
+python-multipart==0.0.20
+pytz==2025.2
+pyxattr==0.8.1
+PyYAML==6.0.3
+regex==2025.11.3
+requests @ file:///home/task_176235919505742/conda-bld/requests_1762359593170/work
+requests-toolbelt @ file:///croot/requests-toolbelt_1690874004362/work
+rich==14.2.0
+ruff==0.14.4
+safehttpx==0.1.7
+safetensors==0.6.2
+scikit-learn==1.7.2
+scipy==1.16.3
+semantic-version==2.10.0
+sentence-transformers==5.1.2
+shellingham==1.5.4
+six==1.17.0
+sniffio==1.3.1
+soupsieve @ file:///croot/soupsieve_1696347547217/work
+SQLAlchemy @ file:///croot/sqlalchemy_1756710012687/work
+starlette==0.49.3
+sympy==1.14.0
+tenacity @ file:///home/task_176037565546859/conda-bld/tenacity_1760375666699/work
+threadpoolctl==3.6.0
+tiktoken==0.12.0
+tokenizers==0.22.1
+tomlkit==0.13.3
+torch==2.9.0
+tqdm==4.67.1
+transformers==4.57.1
+triton==3.5.0
+typer==0.20.0
+typing-inspect @ file:///croot/typing_inspect_1695742055572/work
+typing-inspection @ file:///home/task_176061348755839/conda-bld/typing-inspection_1760614176595/work
+typing_extensions @ file:///croot/typing_extensions_1756280817316/work
+tzdata==2025.2
+urllib3 @ file:///croot/urllib3_1750775463400/work
+uvicorn==0.38.0
+uvloop @ file:///home/task_176217538938473/conda-bld/uvloop_1762175502714/work
+websockets==15.0.1
+xxhash==3.6.0
+yarl @ file:///home/task_176224995305590/conda-bld/yarl_1762250141507/work
+zstandard @ file:///home/task_175818878877641/conda-bld/zstandard_1758189073277/work

@@ -1,0 +1,38 @@
+server:
+  ui_port: 7680
+  ui_share: False
+cache:
+  node:
+    fields:
+      - PersonId
+      - name
+      - labels
+  async: thread
+model:
+  graph-entity:
+    search-key: name
+  embedding:
+#    model-name: iic/nlp_corom_sentence-embedding_chinese-base
+    model-name: '/home/jiebei/langchain_demo_py311/demo01/models/all-MiniLM-L6-v2'
+    device: cpu
+
+database:
+  neo4j:
+    url: neo4j://localhost:7687
+    database: langchaindemopy311
+    username: neo4j
+    # 注意数字用引号括起来
+    password: KOBEforever668!
+
+lang-chain:
+  #用户意图解析方式：custom 或者 tool_calling
+  question_parse: tool_calling
+
+api:
+  title: '  "遇见李白" created by Nong Bin' # 必须使用单引号
+  description: 'knowledge graph ang chatbot for chinese ancient poets and other cultures'
+log:
+  level: INFO
+
+
+
