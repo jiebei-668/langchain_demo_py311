@@ -1,8 +1,9 @@
 import time
 
+from langchain_core.messages import AIMessage, ToolMessage
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
-from demo01.tools import rag, construct_kg, llm_dialogue_tool
+from demo01.tools import rag, construct_kg, llm_dialogue_tool, get_solution_by_task_name
 
 from demo01.config.config import Config
 
@@ -24,7 +25,7 @@ model = ChatOpenAI(
         max_tokens=1000,
         timeout=30
 )
-agent = create_agent(model, tools=[rag, construct_kg])
+agent = create_agent(model, tools=[rag, construct_kg, get_solution_by_task_name])
 
 
 # 第一个参数和第二个参数一个是历史，一个是当前信息，貌似和gr.Textbox().submit第二个参数顺序有关
@@ -34,16 +35,18 @@ def chat_with_agent(message, chat_history):
     # messages = [{"role": "user", "content": message}]
     result = agent.invoke({"messages": chat_history}, cnotallow={"configurable": {"thread_id": "user_1"}})
 
-    # 提取Agent的回复
-    if hasattr(result, 'get') and 'output' in result:
-        response = result['output']
+
+
+    # 提取agent的回答
+    if isinstance(result["messages"][-2], ToolMessage):
+        response = result["messages"][-2].content
     else:
-        response = {"role": "assistant", "content": str(result)}
+        response = result["messages"][-1].content
 
-        # 更新聊天历史
-        chat_history.append(response)
+    # 更新聊天历史
+    chat_history.append({"content": response, "role": "assistant"})
 
-        return "", chat_history
+    return "", chat_history
 
 
 
@@ -344,26 +347,7 @@ def get_color(index: int) -> str:
 
 def main():
     with gr.Blocks() as demo:
-        with gr.Tab("自动构建知识图谱"):
-            gr.Markdown("# 图谱构建&可视化")
-
-            with gr.Row():
-                text_input = gr.Textbox(
-                    label="请输入用以构建图谱的原文",
-                    lines=10,
-                    # value=json.dumps(EXAMPLE_DATA, indent=2)
-                )
-
-            with gr.Row():
-                submit_btn = gr.Button("构建并在新窗口可视化", variant="primary")
-                status = gr.Textbox(label="状态", interactive=False)
-
-            submit_btn.click(
-                fn=open_graph_in_browser,
-                inputs=text_input,
-                outputs=status
-            )
-        with gr.Tab("YWAent"):
+        with gr.Tab("YWAgent"):
             gr.Markdown("我是运维专家，你可以问我相关的问题！")
 
             chatbot = gr.Chatbot(elem_id="chatbot", bubble_full_width=False, type="messages")
@@ -384,6 +368,26 @@ def main():
             bot_msg = chat_msg.then(create_stream_output, chatbot, chatbot, api_name="bot_response")
             # bot_msg.then(lambda: gr.MultimodalTextbox(interactive=True), None, [chat_input])
             bot_msg.then(lambda: gr.Textbox(interactive=True), None, [chat_input])
+        with gr.Tab("自动构建知识图谱"):
+            gr.Markdown("# 图谱构建&可视化")
+
+            with gr.Row():
+                text_input = gr.Textbox(
+                    label="请输入用以构建图谱的原文",
+                    lines=10,
+                    # value=json.dumps(EXAMPLE_DATA, indent=2)
+                )
+
+            with gr.Row():
+                submit_btn = gr.Button("构建并在新窗口可视化", variant="primary")
+                status = gr.Textbox(label="状态", interactive=False)
+
+            submit_btn.click(
+                fn=open_graph_in_browser,
+                inputs=text_input,
+                outputs=status
+            )
+
 
 
     demo.launch(
