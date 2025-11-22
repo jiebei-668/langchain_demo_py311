@@ -9,6 +9,7 @@ from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_community.vectorstores import FAISS
 from langchain_openai.chat_models import ChatOpenAI
 from demo01.model.rag.retriever_service import retrieve
+from demo01.toolresponse import ToolResponse
 
 
 
@@ -27,21 +28,21 @@ def get_weather(location: str) -> str:
 
 
 @tool
-def get_solution_by_task_name(task_name) -> Tuple[list, str]:
+def get_solution_by_task_name(task_name) -> ToolResponse:
     """根据任务名称查询系统问题的解决方案步骤。
 
     这个工具用于处理系统相关问题，如系统重装、故障排查等。
     输入任务名称，返回详细的解决步骤列表和执行结果。"""
     steps =_dao.query_task_steps_ordered_list(task_name)
     # fixme 这里补充自动执行的结果
-    return steps, '执行成功'
+    return ToolResponse(tool_name="自动解决主机故障工具", message=steps)
 
 
 
 
 
 @tool
-def rag(query: str) -> str:
+def rag(query: str) -> ToolResponse:
     """该工具接收用户查询，根据文档库中的知识回答用户问题"""
 
     docs = retrieve(query, 3)
@@ -61,7 +62,7 @@ def rag(query: str) -> str:
     messages = [{"role": "user", "content": rag_user_message}]
 
     response = llm_dialogue_tool(messages)
-    return response
+    return ToolResponse(tool_name="知识库检索工具", message=response)
 
 
 # 定义调用LLM的Tool
@@ -72,7 +73,7 @@ def llm_dialogue_tool(query: str) -> str:
     return response.content
 
 @tool
-def construct_kg(raw_text: str):
+def construct_kg(raw_text: str) -> ToolResponse:
     """使用LLM从原始文本中抽取实体和关系然后构建知识图谱/知识图谱三元组"""
     from demo01.prompts.kg_construct import __retriever_prompt
     messages = [
