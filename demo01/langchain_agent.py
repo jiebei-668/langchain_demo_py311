@@ -13,14 +13,15 @@ import json
 import tempfile
 import webbrowser
 from pathlib import Path
+from demo01_env import get_env_value
 
 cnotallow = {"configurable": {"thread_id": "user_1"}}
 
 # 对于任何提供 OpenAI 兼容 API 的模型
 model = ChatOpenAI(
-        model="glm-4",  # 实际模型名称
-        base_url="https://open.bigmodel.cn/api/paas/v4/",  # API 地址
-        api_key="f1c06ff516bb472eb265b503934e57f0.Zn9g6lMZyrWS43FT",  # API 密钥
+        model=get_env_value("MODEL_NAME"),  # 实际模型名称
+        base_url=get_env_value("LLM_BASE_URL"),  # API 地址
+        api_key=get_env_value("LLM_API_KEY"),  # API 密钥
         temperature=0.1,
         max_tokens=1000,
         timeout=30
@@ -52,6 +53,8 @@ def chat_with_agent(message, chat_history):
 
 # 流式产生内容
 def create_stream_output(history: list):
+    if history == []:
+        return []
     response = history[-1]["content"]
     history.pop()
     template = {"role": "assistant", "content": ""}
